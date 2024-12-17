@@ -267,12 +267,12 @@ impl<F: Clone + Send + Sync> Domain<F, PaymentsCreateIntentRequest, payments::Pa
     #[instrument(skip_all)]
     async fn perform_routing<'a>(
         &'a self,
-        merchant_account: &domain::MerchantAccount,
-        business_profile: &domain::Profile,
-        state: &SessionState,
+        _merchant_account: &domain::MerchantAccount,
+        _business_profile: &domain::Profile,
+        _state: &SessionState,
         // TODO: do not take the whole payment data here
-        payment_data: &mut payments::PaymentIntentData<F>,
-        mechant_key_store: &domain::MerchantKeyStore,
+        _payment_data: &mut payments::PaymentIntentData<F>,
+        _mechant_key_store: &domain::MerchantKeyStore,
     ) -> CustomResult<api::ConnectorCallType, errors::ApiErrorResponse> {
         Ok(api::ConnectorCallType::Skip)
     }
